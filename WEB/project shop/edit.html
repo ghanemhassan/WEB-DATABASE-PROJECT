@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Order</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Edit Order</h1>
+      <form id="editOrderForm">
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Customer Name"
+          required
+        />
+        <input
+          type="text"
+          id="customerAddress"
+          placeholder="Customer Address"
+          required
+        />
+        <input type="date" id="orderDate" required />
+        <input
+          type="text"
+          id="productName"
+          placeholder="Product Name"
+          required
+        />
+        <input
+          type="number"
+          id="productPrice"
+          placeholder="Product Price"
+          required
+        />
+        <input type="number" id="quantity" placeholder="Quantity" required />
+        <button type="submit">Save Changes</button>
+      </form>
+      <button
+        onclick="window.location.href='index.html'"
+        style="margin-top: 15px"
+      >
+        Back to Orders
+      </button>
+    </div>
+
+    <script src="edit.js"></script>
+  </body>
+</html>

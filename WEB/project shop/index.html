@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Customer Orders</h1>
+    <button onclick="location.href='add.html'">Add Order</button>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search by customer name or order number...">
+      <select id="sortSelect">
+        <option value="orderDate">Sort by Date</option>
+        <option value="totalPrice">Sort by Total Price</option>
+      </select>
+    </div>
+
+    <table id="ordersTable">
+      <thead>
+        <tr>
+          <th>Order</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Address</th>
+          <th>Products</th>
+          <th>Total Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html
