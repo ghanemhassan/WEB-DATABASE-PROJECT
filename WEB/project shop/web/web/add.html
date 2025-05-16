@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Order</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add New Order</h1>
+      <form id="addOrderForm">
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Customer Name"
+          required
+        />
+        <input
+          type="text"
+          id="customerAddress"
+          placeholder="Customer Address"
+          required
+        />
+        <input type="date" id="orderDate" required />
+        <input
+          type="text"
+          id="productName"
+          placeholder="Product Name"
+          required
+        />
+        <input
+          type="number"
+          step="0.01"
+          id="productPrice"
+          placeholder="Product Price"
+          required
+        />
+        <input type="number" id="quantity" placeholder="Quantity" required />
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("addOrderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const data = {
+            customerName: document.getElementById("customerName").value,
+            customerAddress: document.getElementById("customerAddress").value,
+            orderDate: document.getElementById("orderDate").value,
+            productName: document.getElementById("productName").value,
+            productPrice: parseFloat(
+              document.getElementById("productPrice").value
+            ),
+            quantity: parseInt(document.getElementById("quantity").value),
+          };
+
+          fetch("http://localhost:3000/orders", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((resp) => {
+              if (resp.success) {
+                alert("Order added successfully!");
+                window.location.href = "index.html";
+              } else {
+                alert("Failed to add order.");
+              }
+            })
+            .catch(() => alert("Server error!"));
+        });
+    </script>
+  </body>
+</html>
